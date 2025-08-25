@@ -1,5 +1,7 @@
 # IMDSP-BSoS-
 Welcome to the official repository for IMDSP-BSoS, a Secure and Scalable Systems-of-Systems (SoS) framework designed to revolutionize healthcare data management. This repository provides the code, resources, and documentation needed to implement, explore, and extend the capabilities of the IMDSP-BSoS framework.
+<img width="1353" height="1024" alt="Graphical Abstract new1" src="https://github.com/user-attachments/assets/c294ae7e-1286-413b-a125-aaedc8dbf9d9" />
+
 
 Abstract
 IMDSP-BSoS is a novel System-of-Systems (SoS) framework that integrates:

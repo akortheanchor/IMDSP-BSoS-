@@ -1,0 +1,64 @@
+[
+  {
+    "id": "inject1",
+    "type": "inject",
+    "z": "flow1",
+    "name": "Start Loop",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "5",
+    "crontab": "",
+    "once": true,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payload": "",
+    "payloadType": "date",
+    "x": 130,
+    "y": 120,
+    "wires": [
+      [
+        "function1"
+      ]
+    ]
+  },
+  {
+    "id": "function1",
+    "type": "function",
+    "z": "flow1",
+    "name": "Simulate Sensor Data",
+    "func": "\nlet dataset = [\n    { time: \"08:00\", HR: 72, SpO2: 98, activity: \"low\" },\n    { time: \"09:00\", HR: 75, SpO2: 97, activity: \"low\" },\n    { time: \"10:00\", HR: 110, SpO2: 94, activity: \"high\" },\n    { time: \"11:00\", HR: 80, SpO2: 96, activity: \"moderate\" },\n    { time: \"12:00\", HR: 70, SpO2: 98, activity: \"low\" }\n];\nlet index = flow.get('index') || 0;\nmsg.payload = dataset[index];\nindex = (index + 1) % dataset.length;\nflow.set('index', index);\nreturn msg;\n",
+    "outputs": 1,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "x": 330,
+    "y": 120,
+    "wires": [
+      [
+        "debug1"
+      ]
+    ]
+  },
+  {
+    "id": "debug1",
+    "type": "debug",
+    "z": "flow1",
+    "name": "Output",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "x": 540,
+    "y": 120,
+    "wires": []
+  }
+]
